@@ -11,7 +11,7 @@ done
 
 for i in udp udpcache tcp tcpcache
 do
-    echo "\n$i min, max, avg"
+    echo -e "\n$i min, max, avg"
     awk 'BEGIN{m=100000}{if(m>$1) m=$1} END{print m}' < ./$i
     awk '{if(m<$1) m=$1} END{print m}' < ./$i
     awk '{sum+=$1} END {print sum/NR}' < ./$i
