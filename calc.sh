@@ -5,7 +5,7 @@ echo "******kdig result from $HOST ( $IP)******"
 
 for i in udp udpcache tcp tcpcache
 do
-    sed -i -e 's/;.*in //' ./$i
+    sed -i -e 's/;;From.*in //' ./$i
     sed -i -e 's/ ms//' ./$i
 done
 

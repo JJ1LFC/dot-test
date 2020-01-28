@@ -9,8 +9,8 @@ echo 'Starting with UDP...'
 for i in `seq 500`
 do
     ssh -J cpu1 endo 'sudo unbound-control reload'
-    kdig google.com. @endo.sfc.wide.ad.jp.:853 +notls | grep ';; From' >> ./udp
-    kdig google.com. @endo.sfc.wide.ad.jp.:853 +notls | grep ';; From' >> ./udpcache
+    kdig google.com. @endo.sfc.wide.ad.jp.:853 +notls | grep '(;; From|;; WARNING)' >> ./udp
+    kdig google.com. @endo.sfc.wide.ad.jp.:853 +notls | grep '(;; From|;; WARNING)' >> ./udpcache
     echo "UDP $i "
 done
 
@@ -19,8 +19,8 @@ echo 'Starting with TCP...'
 for i in `seq 500`
 do
     ssh -J cpu1 endo 'sudo unbound-control reload'
-    kdig google.com. @endo.sfc.wide.ad.jp.:853 +tcp +tls | grep ';; From' >> ./tcp
-    kdig google.com. @endo.sfc.wide.ad.jp.:853 +tcp +tls | grep ';; From' >> ./tcpcache
+    kdig google.com. @endo.sfc.wide.ad.jp.:853 +tcp +tls | grep '(;; From|;; WARNING)' >> ./tcp
+    kdig google.com. @endo.sfc.wide.ad.jp.:853 +tcp +tls | grep '(;; From|;; WARNING)' >> ./tcpcache
     echo "TCP $i "
 done
 
