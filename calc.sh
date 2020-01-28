@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 HOST=`hostname -f`
 IP=`hostname -I`
-echo ******kdig result from $HOST \( $IP\)******
+echo "******kdig result from $HOST ( $IP)******"
 
 for i in udp udpcache tcp tcpcache
 do
