@@ -1,0 +1,9 @@
+Host cpu1
+    Hostname cpu1.sfc.wide.ad.jp
+    User alt
+    IdentityFile /home/alt/.ssh/endo-key
+
+Host endo
+    Hostname endo.sfc.wide.ad.jp
+    User alt
+    IdentityFile /home/alt/.ssh/endo-key
